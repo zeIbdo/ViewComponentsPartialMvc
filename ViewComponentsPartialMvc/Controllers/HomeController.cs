@@ -17,5 +17,22 @@ namespace ViewComponentsPartialMvc.Controllers
             return View(products);
         }
 
+        public IActionResult LoadMoreProducts(int page)
+        {
+            int pageSize = 4; 
+            var products = _context.Products
+                                   .Skip(page) 
+                                   .Take(pageSize)        
+                                   .ToList();
+
+            if (!products.Any())
+            {
+                return Content(""); 
+            }
+
+            return PartialView("_ProductPartial", products);
+        }
+
+
     }
 }

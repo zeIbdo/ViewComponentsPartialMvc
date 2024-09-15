@@ -1,67 +1,20 @@
-﻿<div class="brand_container layout_padding2">
+﻿@model List<Product>
+
+@foreach (var item in Model)
+{
     <div class="box">
         <a href="">
-            <div class="new">
-                <h5>
-                    New
-                </h5>
-            </div>
             <div class="img-box">
-                <img src="~/assets/images/slider-img.png" alt="">
+                <img src="~/assets/images/@item.ImageUrl" alt="">
             </div>
             <div class="detail-box">
                 <h6 class="price">
-                    $100
+                    $@item.Price
                 </h6>
                 <h6>
-                    Chair
+                    @item.Name
                 </h6>
             </div>
         </a>
     </div>
-    <div class="box">
-        <a href="">
-            <div class="img-box">
-                <img src="~/assets/images/slider-img.png" alt="">
-            </div>
-            <div class="detail-box">
-                <h6 class="price">
-                    $100
-                </h6>
-                <h6>
-                    Chair
-                </h6>
-            </div>
-        </a>
-    </div>
-    <div class="box">
-        <a href="">
-            <div class="img-box">
-                <img src="~/assets/images/slider-img.png" alt="">
-            </div>
-            <div class="detail-box">
-                <h6 class="price">
-                    $100
-                </h6>
-                <h6>
-                    Chair
-                </h6>
-            </div>
-        </a>
-    </div>
-    <div class="box">
-        <a href="">
-            <div class="img-box">
-                <img src="~/assets/images/slider-img.png" alt="">
-            </div>
-            <div class="detail-box">
-                <h6 class="price">
-                    $100
-                </h6>
-                <h6>
-                    Chair
-                </h6>
-            </div>
-        </a>
-    </div>
-</div>
+}
