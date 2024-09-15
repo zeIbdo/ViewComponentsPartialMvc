@@ -13,8 +13,8 @@ namespace ViewComponentsPartialMvc.Controllers
         }
         public IActionResult Index()
         {
-
-        return View(); 
+            var products= _context.Products.Take(4).ToList();
+            return View(products);
         }
 
     }
