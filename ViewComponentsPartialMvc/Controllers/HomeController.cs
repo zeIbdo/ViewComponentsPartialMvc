@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ViewComponentsPartialMvc.DataAccessLayer;
 
 namespace ViewComponentsPartialMvc.Controllers
@@ -6,10 +7,13 @@ namespace ViewComponentsPartialMvc.Controllers
     public class HomeController:Controller
     {
         private readonly AppDbContext _context;
-
+        private readonly int _productCount;
         public HomeController(AppDbContext context)
         {
             _context = context;
+            _productCount = _context.Products.Count();
+            ViewBag.ProductCount = _productCount;
+
         }
         public IActionResult Index()
         {
@@ -17,21 +21,20 @@ namespace ViewComponentsPartialMvc.Controllers
             return View(products);
         }
 
-        public IActionResult LoadMoreProducts(int page)
+        public IActionResult LoadProducts(int skip)
         {
-            int pageSize = 4; 
-            var products = _context.Products
-                                   .Skip(page) 
-                                   .Take(pageSize)        
-                                   .ToList();
+            int pageSize = 4;
+            var totalProducts = _context.Products.Count();
 
-            if (!products.Any())
+            if (skip >= totalProducts)
             {
-                return Content(""); 
+                return BadRequest(); 
             }
 
+            var products = _context.Products.Skip(skip).Take(pageSize).ToList();
             return PartialView("_ProductPartial", products);
         }
+
 
 
     }

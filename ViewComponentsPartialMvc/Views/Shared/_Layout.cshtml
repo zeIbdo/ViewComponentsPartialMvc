@@ -12,7 +12,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Digitf</title>
+    <title>Brainrot Furnitures</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -36,8 +36,8 @@
         <header class="header_section">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg custom_nav-container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="~/assets/images/logo.png" alt="" />
+                    <a class="navbar-brand" href="home/index">
+                            <img src="~/assets/images/Screenshot_2024-09-16_030032-removebg-preview.png" alt="" style="width:125px;height:130px; margin-top:40px" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -398,6 +398,32 @@
 
         <script type="text/javascript" src="~/assets/js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="~/assets/js/bootstrap.js"></script>
+    <script>
+        var skip = 4; 
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('#loadMore').addEventListener('click', function () {
+                var productCount = parseInt($("#productCount").val()); 
+
+                $.ajax({
+                    url: "/home/loadProducts?skip=" + skip, 
+                    type: "GET",
+                    success: function (response) {
+                        $("#productRow").append(response); 
+                        skip += 4; 
+                        if (skip >= productCount) {
+                            $("#loadMore").remove();
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error loading products:", error); 
+                    }
+                });
+            });
+        });
+    </script>
+   
+
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
         </script>
         <script type="text/javascript">

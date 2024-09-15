@@ -178,6 +178,7 @@
                 Furnitures
             </h2>
         </div>
+        <div class="row" id="productRow">
         <div class="brand_container layout_padding2">
             @foreach(var item in products)
             {
@@ -200,11 +201,15 @@
             }
            
         </div>
+        </div>
+
+        <input type="hidden" id="productCount" value="@ViewBag.ProductCount" />
+
         <button id="loadMore" class="brand-btn">
             See More
         </button>
+        
     </div>
 </section>
-
 <!-- end brand section -->
 
