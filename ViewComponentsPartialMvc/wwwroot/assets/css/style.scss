@@ -90,25 +90,22 @@ body {
   }
 }
 
-/*header section*/
+header section
 .hero_area {
-  height: 100vh;
-  background-image: url(../images/hero-bg.jpg);
-  background-size: cover;
-  position: relative;
-  background-repeat: no-repeat;
-  overflow: hidden;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 45%;
-    height: 100%;
-    background-image: url(../images/hero-side-bg.png);
+    background-color: #121212 !important;  Use a solid dark background 
+    background-image: none !important;  Ensure no images or gradients are applied 
     background-size: cover;
-  }
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+     Remove the problematic ::after pseudo-element 
+    &::after {
+        content: none;  Disable the ::after content entirely 
+    }
+}
+.no-background-image {
+    background-image: none !important;
 }
 
 .sub_page {

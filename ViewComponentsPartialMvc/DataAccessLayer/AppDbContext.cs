@@ -12,5 +12,6 @@ namespace ViewComponentsPartialMvc.DataAccessLayer
         public DbSet<Product>? Products { get; set; }
         public DbSet<Header>? Headers { get; set; }
         public DbSet<Footer>? Footers { get; set; }
+
     }
 }

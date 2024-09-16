@@ -1,0 +1,93 @@
+﻿@{
+    Footer myFooter = Model;
+}
+<footer>
+    <!-- info section -->
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="info_logo">
+                <h2>
+                    Brainrot Furnitures
+                </h2>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="info_contact">
+                        <h5>
+                            About Shop
+                        </h5>
+                        <div>
+                            <a href="@myFooter.AddressLink"> <div class="img-box">
+                                <img src="~/assets/images/location-white.png" width="18px" alt="">
+                            </div>
+                            <p>
+                                Address
+                            </p>
+                            </a>
+                        </div>
+                        <div>
+                            <div class="img-box">
+                                <img src="~/assets/images/telephone-white.png" width="12px" alt="">
+                            </div>
+                            <p>
+                                @myFooter.PhoneNumber
+                            </p>
+                        </div>
+                        <div>
+                            <div class="img-box">
+                                <img src="~/assets/images/envelope-white.png" width="18px" alt="">
+                            </div>
+                            <p>
+                                @myFooter.Email
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_info">
+                        <h5>
+                            Informations
+                        </h5>
+                        <p>
+                            @myFooter.Informations
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="info_form ">
+
+                        <div class="social_box">
+                            <a href="@myFooter.FacebookLink">
+                                <img src="~/assets/images/fb.png" alt="">
+                            </a>
+                            <a href="@myFooter.TwitterLink">
+                                <img src="~/assets/images/twitter.png" alt="">
+                            </a>
+                            <a href="@myFooter.LinkedinLink">
+                                <img src="~/assets/images/linkedin.png" alt="">
+                            </a>
+                            <a href="@myFooter.YoutubeLink">
+                                <img src="~/assets/images/youtube.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end info_section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section ">
+        <div class="container">
+            <p>
+                &copy; 2024 All Rights Reserved By
+                <a href="">IBDO</a>
+            </p>
+        </div>
+    </section>
+    <!-- end  footer section -->
+</footer>
