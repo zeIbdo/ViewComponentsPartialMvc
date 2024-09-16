@@ -411,6 +411,8 @@
                         $("#productRow").append(response); 
                         skip += 4; 
                         if (skip >= productCount) {
+                            console.log("All products loaded. Removing 'Load More' button.");
+
                             $("#loadMore").remove();
                         }
                     },

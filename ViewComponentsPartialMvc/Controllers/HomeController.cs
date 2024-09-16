@@ -12,12 +12,13 @@ namespace ViewComponentsPartialMvc.Controllers
         {
             _context = context;
             _productCount = _context.Products.Count();
-            ViewBag.ProductCount = _productCount;
 
         }
         public IActionResult Index()
         {
             var products= _context.Products.Take(4).ToList();
+            ViewBag.ProductCount = _productCount;
+
             return View(products);
         }
 

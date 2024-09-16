@@ -39,9 +39,9 @@
             </div>
         </div>
 
-        <input type="hidden" id="productCount" value="@ViewBag.ProductCount" />
+        <input type="hidden" id="productCountOnPr" value="@ViewBag.ProductCountOnProducts" />
 
-        <button id="loadMore" class="brand-btn">
+        <button id="loadMoreOnPr" class="brand-btn">
             See More
         </button>
 
@@ -50,18 +50,19 @@
 <script>
     var skip = 4;
     document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('#loadMore').addEventListener('click', function () {
-            var productCount = parseInt($("#productCount").val());
-
+        document.querySelector('#loadMoreOnPr').addEventListener('click', function () {
+            var productCount = parseInt($("#productCountOnPr").val());
+            console.log("Total Product Count: ", productCount);
+            console.log("Current Skip Value: ", skip);
             $.ajax({
                 url: "/product/loadProductsOnProducts?skip=" + skip,
                 type: "GET",
                 success: function (response) {
                     $("#productRow").append(response);
                     skip += 4;
-                    // if (skip > productCount) {
-                    //     $("#loadMore").remove();
-                    // }
+                    if (skip >= productCount) {
+                        $("#loadMoreOnPr").remove();
+                    }
                 },
                 error: function (xhr, status, error) {
                     console.error("Error loading products:", error);

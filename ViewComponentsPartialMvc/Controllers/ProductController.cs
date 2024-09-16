@@ -10,11 +10,12 @@ namespace ViewComponentsPartialMvc.Controllers
         public ProductController(AppDbContext context)
         {
             _context = context;
-            ViewBag.ProductCount = _context.Products.Count();
         }
         public IActionResult Index()
         {
             var products = _context.Products.Take(4).ToList();
+            ViewBag.ProductCountOnProducts = (_context.Products.Count());
+
             return View(products);
         }
         public IActionResult LoadProductsOnProducts(int skip)
